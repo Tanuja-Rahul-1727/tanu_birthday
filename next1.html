@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Memories</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .images img {
+            width: 250px;
+            height: 240px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .next-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .next-button:hover {
+            background-color: #e91e63;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        @media (max-width: 600px) {
+            .images {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="container">
+        <h1>𝓗𝓪𝓹𝓹𝔂  𝓗𝓪𝓹𝓹𝔂  𝓦𝓪𝓵𝓪 𝓑𝓲𝓻𝓽𝓱𝓭𝓪𝔂..  <br>
+            𝓔𝓷𝓳𝓸𝔂  𝓨𝓸𝓾𝓻 𝓓𝓪𝔂.....<br> 🎂🍫🍬 
+            𝓑𝓪𝓬𝓱𝓪...❤💫✨</h1>
+        <div class="images">
+            <img src="z1.jpeg" alt="Memory 1">
+            <img src="2.jpeg" alt="Memory 2">
+        </div>
+        <button class="next-button" onclick="nextPage()">Next Page →</button>
+    </div>
+    <script>
+        gsap.from("h1", { duration: 2, opacity: 0, y: -50, ease: "bounce.out" });
+        gsap.from(".images img", { duration: 1.5, opacity: 0, scale: 0.5, stagger: 0.3 });
+        gsap.from(".next-button", { duration: 1.5, opacity: 0, scale: 0.8, ease: "elastic.out(1, 0.5)" });
+        
+        const confettiSettings = { target: 'confetti-canvas', max: 100, size: 1.2, animate: true, clock: 30 };
+        const confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+
+        function nextPage() {
+            window.location.href = "next2.html"; // Change this to the actual next page URL
+        }
+    </script>
+</body>
+</html>
